@@ -1,0 +1,465 @@
+---
+title: Class Diagram MVC - Website GKJ Wates (View - Controller - Model)
+---
+classDiagram
+    direction LR
+
+    %% =====================================================
+    %% VIEW  (KIRI) - Halaman / komponen React
+    %% =====================================================
+    class LoginPage {
+        <<View>>
+        +render() JSX
+        +handleLogin() void
+    }
+    class UserManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class BeritaManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class KategoriManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class KomisiManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class KegiatanManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class PengumumanManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class SorotanManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class RenunganManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class JamPelayananManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class KemajelisanManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class PersyaratanManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+        +handleDelete() void
+    }
+    class KritikSaranManagementView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleMarkRead() void
+        +handleDelete() void
+    }
+    class PengaturanWebView {
+        <<View>>
+        +render() JSX
+        +loadData() void
+        +handleSubmit() void
+    }
+    class LandingPage {
+        <<View>>
+        +render() JSX
+        +loadData() void
+    }
+    class BeritaPage {
+        <<View>>
+        +render() JSX
+        +loadData() void
+    }
+    class RenunganPage {
+        <<View>>
+        +render() JSX
+        +loadData() void
+    }
+    class KritikSaranSection {
+        <<View>>
+        +render() JSX
+        +handleSubmit() void
+    }
+
+    %% =====================================================
+    %% CONTROLLER  (TENGAH) - Express Controllers
+    %% =====================================================
+    class AuthController {
+        <<Controller>>
+        +login(req, res) void
+        +forgotPassword(req, res) void
+        +me(req, res) void
+    }
+    class UserController {
+        <<Controller>>
+        +getUsers(req, res) void
+        +getUserById(req, res) void
+        +createUser(req, res) void
+        +updateUser(req, res) void
+        +deleteUser(req, res) void
+    }
+    class RoleController {
+        <<Controller>>
+        +getRoles(req, res) void
+    }
+    class BeritaController {
+        <<Controller>>
+        +getBerita(req, res) void
+        +createBerita(req, res) void
+        +updateBerita(req, res) void
+        +deleteBerita(req, res) void
+        +getKategori(req, res) void
+        +createKategori(req, res) void
+        +updateKategori(req, res) void
+        +deleteKategori(req, res) void
+    }
+    class KegiatanController {
+        <<Controller>>
+        +getKegiatan(req, res) void
+        +createKegiatan(req, res) void
+        +updateKegiatan(req, res) void
+        +deleteKegiatan(req, res) void
+        +getKomisi(req, res) void
+        +createKomisi(req, res) void
+        +updateKomisi(req, res) void
+        +deleteKomisi(req, res) void
+    }
+    class PengumumanController {
+        <<Controller>>
+        +getPengumuman(req, res) void
+        +getPengumumanById(req, res) void
+        +createPengumuman(req, res) void
+        +updatePengumuman(req, res) void
+        +deletePengumuman(req, res) void
+        +createKonten(req, res) void
+        +updateKonten(req, res) void
+        +deleteKonten(req, res) void
+    }
+    class SorotanController {
+        <<Controller>>
+        +getSorotan(req, res) void
+        +createSorotan(req, res) void
+        +updateSorotan(req, res) void
+        +deleteSorotan(req, res) void
+    }
+    class RenunganController {
+        <<Controller>>
+        +getRenungan(req, res) void
+        +createRenungan(req, res) void
+        +updateRenungan(req, res) void
+        +deleteRenungan(req, res) void
+    }
+    class JamPelayananController {
+        <<Controller>>
+        +getIbadah(req, res) void
+        +getIbadahById(req, res) void
+        +createIbadah(req, res) void
+        +updateIbadah(req, res) void
+        +deleteIbadah(req, res) void
+        +createJadwal(req, res) void
+        +updateJadwal(req, res) void
+        +deleteJadwal(req, res) void
+    }
+    class KemajelisanController {
+        <<Controller>>
+        +getKemajelisan(req, res) void
+        +getKemajelisanById(req, res) void
+        +createKemajelisan(req, res) void
+        +updateKemajelisan(req, res) void
+        +deleteKemajelisan(req, res) void
+    }
+    class PersyaratanController {
+        <<Controller>>
+        +getPersyaratan(req, res) void
+        +createPersyaratan(req, res) void
+        +updatePersyaratan(req, res) void
+        +deletePersyaratan(req, res) void
+    }
+    class KritikSaranController {
+        <<Controller>>
+        +getKritikSaran(req, res) void
+        +markAsRead(req, res) void
+        +deleteKritikSaran(req, res) void
+    }
+    class PengaturanWebController {
+        <<Controller>>
+        +getPengaturan(req, res) void
+        +upsertPengaturan(req, res) void
+    }
+    class PublicController {
+        <<Controller>>
+        +getJadwal(req, res) void
+        +getSorotan(req, res) void
+        +getPengumuman(req, res) void
+        +getKegiatan(req, res) void
+        +getBerita(req, res) void
+        +getBeritaById(req, res) void
+        +getKomisi(req, res) void
+        +getKemajelisan(req, res) void
+        +getRenungan(req, res) void
+        +getPersyaratan(req, res) void
+        +createKritikSaran(req, res) void
+    }
+
+    %% =====================================================
+    %% MODEL  (KANAN) - Entitas Prisma / Database
+    %% =====================================================
+    class Roles {
+        <<Model>>
+        +id_role : Int
+        +nama_role : String
+        +deskripsi_role : String
+    }
+    class User {
+        <<Model>>
+        +id_user : Int
+        +id_role : Int
+        +username : String
+        +email : String
+        +password : String
+        +created_at : DateTime
+        +updated_at : DateTime
+    }
+    class Kategori {
+        <<Model>>
+        +id_kategori : Int
+        +id_user : Int
+        +nama_kategori : String
+    }
+    class Berita {
+        <<Model>>
+        +id_berita : Int
+        +id_kategori : Int
+        +id_user : Int
+        +judul_berita : String
+        +isi_berita : String
+        +gambar_berita : String
+        +tanggal_berita : DateTime
+        +penulis_berita : String
+        +status_berita : StatusBerita
+    }
+    class Komisi {
+        <<Model>>
+        +id_komisi : Int
+        +id_user : Int
+        +nama_komisi : String
+    }
+    class Kegiatan {
+        <<Model>>
+        +id_kegiatan : Int
+        +id_komisi : Int
+        +id_user : Int
+        +judul_kegiatan : String
+        +gambar_kegiatan : String
+        +deskripsi_kegiatan : String
+        +tanggal_kegiatan : DateTime
+        +lokasi_kegiatan : String
+        +status_kegiatan : StatusKegiatan
+    }
+    class Pengumuman {
+        <<Model>>
+        +id_pengumuman : Int
+        +id_user : Int
+        +tanggal_publish : DateTime
+        +status_pengumuman : StatusPengumuman
+    }
+    class KontenPengumuman {
+        <<Model>>
+        +id_kontenPengumuman : Int
+        +id_pengumuman : Int
+        +id_user : Int
+        +judul_pengumuman : String
+        +isi_pengumuman : String
+        +tanggal_pembuatan : DateTime
+    }
+    class Sorotan {
+        <<Model>>
+        +id_sorotan : Int
+        +id_user : Int
+        +judul_sorotan : String
+        +gambar_sorotan : String
+        +status_publish_sorotan : StatusSorotan
+    }
+    class Renungan {
+        <<Model>>
+        +id_renungan : Int
+        +id_user : Int
+        +judul_renungan : String
+        +bacaan_renungan : String
+        +nats_renungan : String
+        +isi_renungan : String
+        +tanggal_renungan : DateTime
+        +penulis_renungan : String
+        +status_renungan : String
+    }
+    class Persyaratan {
+        <<Model>>
+        +id_persyaratan : Int
+        +id_user : Int
+        +kategori_persyaratan : String
+        +file_pdf : String
+    }
+    class Kemajelisan {
+        <<Model>>
+        +id_kemajelisan : Int
+        +id_user : Int
+        +nama_kemajelisan : String
+        +jabatan_kemajelisan : String
+        +periode_kemajelisan : String
+        +foto_kemajelisan : String
+        +urutan_kemajelisan : Int
+    }
+    class Ibadah {
+        <<Model>>
+        +id_ibadah : Int
+        +id_user : Int
+        +nama_ibadah : String
+        +status_publish_ibadah : StatusIbadah
+    }
+    class JadwalIbadah {
+        <<Model>>
+        +id_jadwalIbadah : Int
+        +id_ibadah : Int
+        +id_user : Int
+        +nama_jadwal : String
+        +jam_ibadah : String
+        +pelayan : String
+    }
+    class KritikSaran {
+        <<Model>>
+        +id_kritik : Int
+        +nama_pengirim : String
+        +email_pengirim : String
+        +isi_pesan : String
+        +status_kritikSaran : StatusKritikSaran
+        +created_at : DateTime
+    }
+    class PengaturanWeb {
+        <<Model>>
+        +id_pengaturan : Int
+        +visi : String
+        +misi : String
+        +sejarah : String
+        +motto : String
+        +alamat : String
+        +email : String
+        +instagram : String
+        +youtube : String
+        +whatsapp : String
+        +gambar_landing : String
+        +copyright_text : String
+        +updated_at : DateTime
+    }
+
+    %% =====================================================
+    %% VIEW --> CONTROLLER  (request HTTP via API)
+    %% =====================================================
+    LoginPage ..> AuthController
+    UserManagementView ..> UserController
+    UserManagementView ..> RoleController
+    BeritaManagementView ..> BeritaController
+    KategoriManagementView ..> BeritaController
+    KomisiManagementView ..> KegiatanController
+    KegiatanManagementView ..> KegiatanController
+    PengumumanManagementView ..> PengumumanController
+    SorotanManagementView ..> SorotanController
+    RenunganManagementView ..> RenunganController
+    JamPelayananManagementView ..> JamPelayananController
+    KemajelisanManagementView ..> KemajelisanController
+    PersyaratanManagementView ..> PersyaratanController
+    KritikSaranManagementView ..> KritikSaranController
+    PengaturanWebView ..> PengaturanWebController
+    LandingPage ..> PublicController
+    BeritaPage ..> PublicController
+    RenunganPage ..> PublicController
+    KritikSaranSection ..> PublicController
+
+    %% =====================================================
+    %% CONTROLLER --> MODEL  (akses data via Prisma)
+    %% =====================================================
+    AuthController ..> User
+    AuthController ..> Roles
+    UserController ..> User
+    UserController ..> Roles
+    RoleController ..> Roles
+    BeritaController ..> Berita
+    BeritaController ..> Kategori
+    KegiatanController ..> Kegiatan
+    KegiatanController ..> Komisi
+    PengumumanController ..> Pengumuman
+    PengumumanController ..> KontenPengumuman
+    SorotanController ..> Sorotan
+    RenunganController ..> Renungan
+    JamPelayananController ..> Ibadah
+    JamPelayananController ..> JadwalIbadah
+    KemajelisanController ..> Kemajelisan
+    PersyaratanController ..> Persyaratan
+    KritikSaranController ..> KritikSaran
+    PengaturanWebController ..> PengaturanWeb
+    PublicController ..> Berita
+    PublicController ..> Renungan
+    PublicController ..> Kegiatan
+    PublicController ..> Pengumuman
+    PublicController ..> Kemajelisan
+    PublicController ..> KritikSaran
+
+    %% =====================================================
+    %% MODEL -- MODEL  (relasi database, kardinalitas)
+    %% =====================================================
+    Roles "1" -- "N" User
+    User "1" -- "N" Kategori
+    User "1" -- "N" Berita
+    Kategori "1" -- "N" Berita
+    User "1" -- "N" Komisi
+    User "1" -- "N" Kegiatan
+    Komisi "1" -- "N" Kegiatan
+    User "1" -- "N" Pengumuman
+    Pengumuman "1" -- "N" KontenPengumuman
+    User "1" -- "N" Sorotan
+    User "1" -- "N" Renungan
+    User "1" -- "N" Persyaratan
+    User "1" -- "N" Kemajelisan
+    User "1" -- "N" Ibadah
+    Ibadah "1" -- "N" JadwalIbadah

@@ -1,0 +1,42 @@
+/* ====== SOROTAN SECTION (CircularGallery) ====== */
+.sorotan {
+  padding: 80px 0 90px;
+  background: linear-gradient(180deg, var(--color-50) 0%, var(--color-100) 100%);
+  overflow: hidden;
+}
+
+.sorotan__header {
+  max-width: 1200px;
+  margin: 0 auto 36px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.sorotan__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-500);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.sorotan__subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Container galeri WebGL - butuh tinggi eksplisit (muat gambar 292px + label) */
+.sorotan__gallery {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+@media (max-width: 768px) {
+  .sorotan__gallery {
+    height: 360px;
+  }
+}

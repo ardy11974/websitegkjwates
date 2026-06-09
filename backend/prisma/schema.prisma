@@ -1,0 +1,335 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum StatusBerita {
+  DRAFT
+  PUBLISH
+}
+
+enum StatusPengumuman {
+  DRAFT
+  PUBLISH
+}
+
+enum StatusKegiatan {
+  DRAFT
+  PUBLISH
+  SELESAI
+}
+
+enum StatusKritikSaran {
+  BELUM_DIBACA
+  DIBACA
+}
+
+enum StatusSorotan {
+  DRAFT
+  PUBLISH
+}
+
+enum StatusIbadah {
+  DRAFT
+  PUBLISH
+}
+
+model Roles {
+  id_role        Int     @id @default(autoincrement())
+  nama_role      String
+  deskripsi_role String?
+
+  users User[]
+}
+
+model User {
+  id_user Int @id @default(autoincrement())
+
+  id_role Int
+
+  username String @unique
+  email    String @unique
+  password String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  role Roles @relation(fields: [id_role], references: [id_role])
+
+  kategori Kategori[]
+  berita   Berita[]
+
+  komisi   Komisi[]
+  kegiatan Kegiatan[]
+
+  pengumuman       Pengumuman[]
+  kontenPengumuman KontenPengumuman[]
+  sorotan          Sorotan[]
+
+  renungan    Renungan[]
+  persyaratan Persyaratan[]
+  kemajelisan Kemajelisan[]
+
+  ibadah       Ibadah[]
+  jadwalIbadah JadwalIbadah[]
+}
+
+model Kategori {
+  id_kategori Int @id @default(autoincrement())
+
+  id_user Int
+
+  nama_kategori String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+
+  berita Berita[]
+}
+
+model Berita {
+  id_berita Int @id @default(autoincrement())
+
+  id_kategori Int
+  id_user     Int
+
+  judul_berita   String
+  isi_berita     String   @db.Text
+  gambar_berita  String?
+  tanggal_berita DateTime
+
+  penulis_berita String
+  status_berita  StatusBerita
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  kategori Kategori @relation(fields: [id_kategori], references: [id_kategori])
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Komisi {
+  id_komisi Int @id @default(autoincrement())
+
+  id_user Int
+
+  nama_komisi String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+
+  kegiatan Kegiatan[]
+}
+
+model Kegiatan {
+  id_kegiatan Int @id @default(autoincrement())
+
+  id_komisi Int
+  id_user   Int
+
+  judul_kegiatan     String
+  gambar_kegiatan    String?
+  deskripsi_kegiatan String  @db.Text
+
+  tanggal_kegiatan DateTime
+  lokasi_kegiatan  String
+
+  status_kegiatan StatusKegiatan
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  komisi Komisi @relation(fields: [id_komisi], references: [id_komisi])
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Pengumuman {
+  id_pengumuman Int @id @default(autoincrement())
+
+  id_user Int
+
+  tanggal_publish   DateTime
+  status_pengumuman StatusPengumuman
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+
+  konten_pengumuman KontenPengumuman[]
+}
+
+model KontenPengumuman {
+  id_kontenPengumuman Int @id @default(autoincrement())
+
+  id_pengumuman Int
+  id_user       Int
+
+  judul_pengumuman String
+  isi_pengumuman   String @db.Text
+
+  tanggal_pembuatan DateTime
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  pengumuman Pengumuman @relation(fields: [id_pengumuman], references: [id_pengumuman])
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Sorotan {
+  id_sorotan Int @id @default(autoincrement())
+
+  id_user Int
+
+  judul_sorotan  String
+  gambar_sorotan String?
+
+  status_publish_sorotan StatusSorotan @default(DRAFT)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Renungan {
+  id_renungan Int @id @default(autoincrement())
+
+  id_user Int
+
+  judul_renungan  String
+  bacaan_renungan String
+  nats_renungan   String
+
+  isi_renungan String @db.Text
+
+  tanggal_renungan DateTime
+
+  penulis_renungan String
+  status_renungan  String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Persyaratan {
+  id_persyaratan Int @id @default(autoincrement())
+
+  id_user Int
+
+  kategori_persyaratan String
+  file_pdf             String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Kemajelisan {
+  id_kemajelisan Int @id @default(autoincrement())
+
+  id_user Int
+
+  nama_kemajelisan    String
+  jabatan_kemajelisan String
+
+  periode_kemajelisan String
+
+  foto_kemajelisan String?
+
+  urutan_kemajelisan Int
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model Ibadah {
+  id_ibadah Int @id @default(autoincrement())
+
+  id_user Int
+
+  nama_ibadah String
+
+  status_publish_ibadah StatusIbadah @default(DRAFT)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [id_user], references: [id_user])
+
+  jadwalIbadah JadwalIbadah[]
+}
+
+model JadwalIbadah {
+  id_jadwalIbadah Int @id @default(autoincrement())
+
+  id_ibadah Int
+  id_user   Int
+
+  nama_jadwal String
+  jam_ibadah  String
+  pelayan     String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  ibadah Ibadah @relation(fields: [id_ibadah], references: [id_ibadah])
+
+  user User @relation(fields: [id_user], references: [id_user])
+}
+
+model KritikSaran {
+  id_kritik Int @id @default(autoincrement())
+
+  nama_pengirim  String?
+  email_pengirim String?
+
+  isi_pesan String @db.Text
+
+  status_kritikSaran StatusKritikSaran @default(BELUM_DIBACA)
+
+  created_at DateTime @default(now())
+}
+
+model PengaturanWeb {
+  id_pengaturan Int @id @default(autoincrement())
+
+  visi    String @db.Text
+  misi    String @db.Text
+  sejarah String @db.Text
+  motto   String @db.Text
+
+  alamat String @db.Text
+
+  email     String
+  instagram String?
+  youtube   String?
+  whatsapp  String?
+
+  gambar_landing String?
+  copyright_text String?
+
+  updated_at DateTime @updatedAt
+}

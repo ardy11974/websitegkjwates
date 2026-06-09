@@ -1,0 +1,190 @@
+classDiagram
+    direction LR
+
+    class Roles {
+        +Int id_role PK
+        +String nama_role
+        +String deskripsi_role
+    }
+
+    class User {
+        +Int id_user PK
+        +Int id_role FK
+        +String username
+        +String email
+        +String password
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Kategori {
+        +Int id_kategori PK
+        +Int id_user FK
+        +String nama_kategori
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Berita {
+        +Int id_berita PK
+        +Int id_kategori FK
+        +Int id_user FK
+        +String judul_berita
+        +String isi_berita
+        +String gambar_berita
+        +DateTime tanggal_berita
+        +String penulis_berita
+        +StatusBerita status_berita
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Komisi {
+        +Int id_komisi PK
+        +Int id_user FK
+        +String nama_komisi
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Kegiatan {
+        +Int id_kegiatan PK
+        +Int id_komisi FK
+        +Int id_user FK
+        +String judul_kegiatan
+        +String gambar_kegiatan
+        +String deskripsi_kegiatan
+        +DateTime tanggal_kegiatan
+        +String lokasi_kegiatan
+        +StatusKegiatan status_kegiatan
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Pengumuman {
+        +Int id_pengumuman PK
+        +Int id_user FK
+        +DateTime tanggal_publish
+        +StatusPengumuman status_pengumuman
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class KontenPengumuman {
+        +Int id_kontenPengumuman PK
+        +Int id_pengumuman FK
+        +Int id_user FK
+        +String judul_pengumuman
+        +String isi_pengumuman
+        +DateTime tanggal_pembuatan
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Sorotan {
+        +Int id_sorotan PK
+        +Int id_user FK
+        +String judul_sorotan
+        +String gambar_sorotan
+        +StatusSorotan status_publish_sorotan
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Renungan {
+        +Int id_renungan PK
+        +Int id_user FK
+        +String judul_renungan
+        +String bacaan_renungan
+        +String nats_renungan
+        +String isi_renungan
+        +DateTime tanggal_renungan
+        +String penulis_renungan
+        +String status_renungan
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Persyaratan {
+        +Int id_persyaratan PK
+        +Int id_user FK
+        +String kategori_persyaratan
+        +String file_pdf
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Kemajelisan {
+        +Int id_kemajelisan PK
+        +Int id_user FK
+        +String nama_kemajelisan
+        +String jabatan_kemajelisan
+        +String periode_kemajelisan
+        +String foto_kemajelisan
+        +Int urutan_kemajelisan
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class Ibadah {
+        +Int id_ibadah PK
+        +Int id_user FK
+        +String nama_ibadah
+        +StatusIbadah status_publish_ibadah
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class JadwalIbadah {
+        +Int id_jadwalIbadah PK
+        +Int id_ibadah FK
+        +Int id_user FK
+        +String nama_jadwal
+        +String jam_ibadah
+        +String pelayan
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    class KritikSaran {
+        +Int id_kritik PK
+        +String nama_pengirim
+        +String email_pengirim
+        +String isi_pesan
+        +StatusKritikSaran status_kritikSaran
+        +DateTime created_at
+    }
+
+    class PengaturanWeb {
+        +Int id_pengaturan PK
+        +String visi
+        +String misi
+        +String sejarah
+        +String motto
+        +String alamat
+        +String email
+        +String instagram
+        +String youtube
+        +String whatsapp
+        +String gambar_landing
+        +String copyright_text
+        +DateTime updated_at
+    }
+
+    Roles "1" --> "N" User : memiliki
+    User "1" --> "N" Kategori : membuat
+    User "1" --> "N" Berita : menulis
+    Kategori "1" --> "N" Berita : mengelompokkan
+    User "1" --> "N" Komisi : mengelola
+    User "1" --> "N" Kegiatan : membuat
+    Komisi "1" --> "N" Kegiatan : menyelenggarakan
+    User "1" --> "N" Pengumuman : membuat
+    Pengumuman "1" --> "N" KontenPengumuman : berisi
+    User "1" --> "N" KontenPengumuman : menulis
+    User "1" --> "N" Sorotan : membuat
+    User "1" --> "N" Renungan : menulis
+    User "1" --> "N" Persyaratan : mengunggah
+    User "1" --> "N" Kemajelisan : mengelola
+    User "1" --> "N" Ibadah : mengelola
+    Ibadah "1" --> "N" JadwalIbadah : memiliki
+    User "1" --> "N" JadwalIbadah : mengatur

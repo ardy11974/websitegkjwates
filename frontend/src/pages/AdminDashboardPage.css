@@ -1,0 +1,209 @@
+/* ====== ADMIN DASHBOARD HOME ====== */
+.admin-home {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ====== WELCOME HERO ====== */
+.admin-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 44px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--color-500) 0%, var(--color-400) 100%);
+  color: var(--color-white);
+  overflow: hidden;
+  box-shadow: 0 18px 44px -18px rgba(57, 88, 134, 0.55);
+  animation: fadeUp 0.6s var(--ease-out-expo);
+}
+
+.admin-hero::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.admin-hero__content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.admin-hero__date {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+  backdrop-filter: blur(6px);
+}
+
+.admin-hero__greeting {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.admin-hero__subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 460px;
+  line-height: 1.55;
+}
+
+.admin-hero__decor {
+  position: relative;
+  z-index: 1;
+  width: 124px;
+  height: 124px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-hero__decor img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* ====== QUICK ACCESS ====== */
+.admin-quick {
+  animation: fadeUp 0.6s var(--ease-out-expo) 0.1s both;
+}
+
+.admin-quick__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+
+.admin-quick__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.admin-quick-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-100);
+  border-radius: 18px;
+  text-align: left;
+  transition: all 0.3s var(--ease-out-expo);
+  box-shadow: 0 6px 18px -12px rgba(57, 88, 134, 0.4);
+}
+
+.admin-quick-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-300);
+  box-shadow: 0 16px 32px -14px rgba(57, 88, 134, 0.4);
+}
+
+.admin-quick-card__icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--color-50);
+  color: var(--color-500);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.admin-quick-card:hover .admin-quick-card__icon {
+  background: linear-gradient(135deg, var(--color-500), var(--color-400));
+  color: var(--color-white);
+}
+
+.admin-quick-card__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.admin-quick-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-quick-card__label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.admin-quick-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.admin-quick-card__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  color: var(--color-400);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.admin-quick-card:hover .admin-quick-card__arrow {
+  transform: translateX(4px);
+  color: var(--color-500);
+}
+
+.admin-quick-card__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+  .admin-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+  }
+
+  .admin-hero__decor {
+    display: none;
+  }
+}

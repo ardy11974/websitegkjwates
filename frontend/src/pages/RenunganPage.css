@@ -1,0 +1,307 @@
+.renungan-page {
+  background-color: var(--color-bg-light);
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+/* Tombol Kembali */
+.renungan-page__back-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 20px;
+}
+
+.renungan-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-500);
+  background: var(--color-white);
+  border-radius: 100px;
+  padding: 9px 18px;
+  box-shadow: 0 6px 16px -8px rgba(57, 88, 134, 0.4);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.renungan-page__back:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 10px 22px -8px rgba(57, 88, 134, 0.5);
+}
+
+.renungan-page__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* PANEL BIRU */
+.renungan-page__panel {
+  background-color: var(--color-bg-dark);
+  border-radius: 16px;
+  padding: 64px 80px;
+}
+
+.renungan-page__eyebrow {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--color-500);
+  margin-bottom: 22px;
+}
+
+.renungan-page__title {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.05;
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.renungan-page__divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 22px;
+}
+
+.renungan-page__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--color-500);
+}
+
+.renungan-page__dot {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.renungan-page__bacaan {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 44px;
+}
+
+.renungan-page__quote {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-500);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+
+.renungan-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 720px;
+}
+
+.renungan-page__paragraph {
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  line-height: 1.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .renungan-page__panel { padding: 48px 40px; }
+  .renungan-page__title { font-size: 2.6rem; }
+}
+
+@media (max-width: 600px) {
+  .renungan-page__panel { padding: 32px 24px; border-radius: 12px; }
+  .renungan-page__title { font-size: 1.9rem; }
+  .renungan-page__quote { font-size: 1rem; }
+}
+/* ====== RENUNGAN LIST PAGE ====== */
+.renungan-list-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--color-50) 0%, var(--color-bg-light) 100%);
+  padding: 110px 0 80px;
+}
+
+.renungan-list-page__container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.renungan-list-page__header {
+  margin-bottom: 32px;
+}
+
+.renungan-list-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 9px 18px;
+  background: var(--color-white);
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-500);
+  box-shadow: 0 6px 16px -8px rgba(57, 88, 134, 0.4);
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.renungan-list-page__back:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 10px 22px -8px rgba(57, 88, 134, 0.5);
+}
+
+.renungan-list-page__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-500);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.renungan-list-page__subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+}
+
+.renungan-list-page__filters {
+  background-color: var(--color-white);
+  border-radius: 14px;
+  padding: 8px;
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 36px;
+  box-shadow: 0 4px 14px rgba(57, 88, 134, 0.06);
+  flex-wrap: wrap;
+}
+
+.renungan-filter {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dark);
+  background: transparent;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.renungan-filter:hover {
+  background-color: rgba(177, 201, 239, 0.4);
+}
+
+.renungan-filter--active {
+  background-color: var(--color-200);
+  color: var(--color-500);
+}
+
+.renungan-filter--active:hover {
+  background-color: var(--color-200);
+}
+
+.renungan-list-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.renungan-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px -18px rgba(57, 88, 134, 0.4);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.renungan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px -20px rgba(57, 88, 134, 0.45);
+}
+
+.renungan-card__badge {
+  align-self: flex-start;
+  padding: 5px 14px;
+  background: var(--color-50);
+  color: var(--color-500);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.renungan-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.renungan-card__bacaan {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-400);
+  margin-bottom: 12px;
+}
+
+.renungan-card__excerpt {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.renungan-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.renungan-card__dot { opacity: 0.5; }
+
+.renungan-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-500);
+}
+
+.renungan-card:hover .renungan-card__link {
+  gap: 10px;
+}
+
+.renungan-list-page__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 60px 0;
+  font-size: 1.05rem;
+}

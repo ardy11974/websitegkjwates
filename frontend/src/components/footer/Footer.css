@@ -1,0 +1,151 @@
+.footer {
+  background-color: #ffffff;
+  padding: 60px 0 30px;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+  color: rgb(255, 255, 255);
+}
+
+.footer__col--brand {
+  padding-right: 20px;
+}
+
+/* ===== LOGO SLOT ===== */
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo gambar - background transparan, no frame */
+.footer__logo-img {
+  height: 44px;
+  width: auto;
+  background: transparent;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Placeholder default sembunyi, muncul kalau image error */
+.footer__logo-placeholder {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-500);
+  flex-shrink: 0;
+}
+
+.footer__logo-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+}
+
+/* ===== HEADING ===== */
+.footer__heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 16px;
+}
+
+.footer__heading--social {
+  margin-top: 24px;
+}
+
+/* ===== LIST ===== */
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__list a {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  transition: color 0.2s;
+}
+
+.footer__list a:hover {
+  color: var(--color-500);
+}
+
+/* ===== CONTACT — fix icon gepeng ===== */
+.footer__contact {
+  display: flex;
+  align-items: flex-start;       /* icon align ke atas, bukan center */
+  gap: 12px;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.footer__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;               /* paksa tidak menyusut */
+  min-height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-400);
+  color: rgb(255, 255, 255);
+  flex-shrink: 0;                /* KUNCI: jangan ikut menyusut */
+  margin-top: 2px;               /* sedikit turun agar align dengan baris pertama text */
+}
+
+/* ===== SOCIAL ===== */
+.footer__socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-400);
+  color: rgb(255, 255, 255);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.footer__social:hover {
+  background-color: var(--color-500);
+  transform: translateY(-3px);
+}
+
+/* ===== BOTTOM ===== */
+.footer__bottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(57, 88, 134, 0.12);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

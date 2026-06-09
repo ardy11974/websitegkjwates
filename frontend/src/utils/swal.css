@@ -1,0 +1,77 @@
+/* ====== Tema SweetAlert2 GKJ Wates ====== */
+.gkj-swal {
+  border-radius: 24px !important;
+  padding: 2em 1.8em 1.6em !important;
+  box-shadow: 0 30px 80px -20px rgba(30, 41, 59, 0.45) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.gkj-swal__title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.55rem !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+.gkj-swal__text {
+  color: #64748b !important;
+  font-size: 0.98rem !important;
+}
+
+.gkj-swal__actions {
+  gap: 12px !important;
+  margin-top: 1.4em !important;
+}
+
+.gkj-swal__confirm,
+.gkj-swal__cancel {
+  border: none !important;
+  border-radius: 100px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  padding: 12px 28px !important;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.gkj-swal__confirm {
+  background: linear-gradient(135deg, #395886, #638ecb) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 20px -8px rgba(57, 88, 134, 0.55);
+}
+
+.gkj-swal__confirm--danger {
+  background: linear-gradient(135deg, #ef4444, #f87171) !important;
+  box-shadow: 0 8px 20px -8px rgba(239, 68, 68, 0.55);
+}
+
+.gkj-swal__confirm:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.gkj-swal__cancel {
+  background: #eef2f9 !important;
+  color: #475569 !important;
+}
+
+.gkj-swal__cancel:hover {
+  transform: translateY(-2px);
+  background: #e2e8f0 !important;
+}
+
+/* Warna ikon agar selaras dengan tema */
+.gkj-swal .swal2-icon.swal2-success {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+.gkj-swal .swal2-icon.swal2-success [class^='swal2-success-line'] {
+  background-color: #22c55e;
+}
+.gkj-swal .swal2-icon.swal2-success .swal2-success-ring {
+  border-color: rgba(34, 197, 94, 0.3);
+}
+.gkj-swal .swal2-timer-progress-bar {
+  background: rgba(57, 88, 134, 0.35);
+}
