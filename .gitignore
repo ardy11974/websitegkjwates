@@ -1,0 +1,5 @@
+mysql-data/
+backend/uploads/
+backend/.env
+frontend/.env.production
+node_modules/
