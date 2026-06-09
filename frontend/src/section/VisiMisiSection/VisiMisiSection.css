@@ -1,0 +1,228 @@
+.visimisi {
+  padding: 90px 0;
+  background-color: var(--color-bg-light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decorative gradient */
+.visimisi::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(177, 201, 239, 0.4), transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: floatSlow 30s ease-in-out infinite;
+}
+
+.visimisi__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.visimisi__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visimisi__left-inner {
+  position: relative;
+  padding-right: 16px;
+}
+
+.visimisi__eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-400);
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 36px;
+}
+
+.visimisi__eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 28px;
+  height: 1.5px;
+  background: var(--color-400);
+  transform: translateY(-50%);
+}
+
+.visimisi__heading {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--color-500);
+  line-height: 1.05;
+  margin-bottom: 22px;
+}
+
+.visimisi__heading span {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--color-400), var(--color-300));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.visimisi__lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  max-width: 380px;
+  margin-bottom: 36px;
+}
+
+.visimisi__deco {
+  position: relative;
+  height: 120px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.visimisi__deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--color-200);
+}
+
+.visimisi__deco-circle--lg {
+  width: 110px;
+  height: 110px;
+  left: 0;
+  top: 0;
+  background-color: var(--color-300);
+  opacity: 0.4;
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.visimisi__deco-circle--md {
+  width: 70px;
+  height: 70px;
+  left: 90px;
+  top: 30px;
+  background-color: var(--color-400);
+  opacity: 0.5;
+  animation: floatSlow 15s ease-in-out infinite reverse;
+}
+
+.visimisi__deco-circle--sm {
+  width: 44px;
+  height: 44px;
+  left: 160px;
+  top: 10px;
+  background-color: var(--color-500);
+  opacity: 0.25;
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+/* ====== CARDS ====== */
+.visimisi__right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.visimisi__card {
+  background-color: var(--color-200);
+  padding: 32px 36px;
+  border-radius: 16px;
+  transition: all 0.5s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient overlay yang muncul saat hover */
+.visimisi__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.visimisi__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(57, 88, 134, 0.22);
+}
+
+.visimisi__card:hover::before {
+  opacity: 1;
+}
+
+.visimisi__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-500);
+  margin-bottom: 16px;
+  transition: all 0.4s var(--ease-out-back);
+}
+
+.visimisi__card:hover .visimisi__icon {
+  transform: rotate(-8deg) scale(1.08);
+  background: var(--color-white);
+}
+
+.visimisi__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--color-500);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.visimisi__text {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  line-height: 1.75;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .visimisi__container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .visimisi__left { justify-content: flex-start; }
+  .visimisi__heading { font-size: 2.4rem; }
+  .visimisi__deco { display: none; }
+}
+
+@media (max-width: 768px) {
+  .visimisi__card { padding: 26px; }
+  .visimisi__title { font-size: 1.5rem; }
+}
+.visimisi__text p {
+  margin: 0 0 12px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.visimisi__text p:last-child { margin-bottom: 0; }

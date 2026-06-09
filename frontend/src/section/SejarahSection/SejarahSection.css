@@ -1,0 +1,140 @@
+.sejarah {
+  position: relative;
+  padding: 90px 0 60px;
+  background-color: var(--color-bg-dark);
+  overflow: hidden;
+}
+
+.sejarah__bg-logo {
+  position: absolute;
+  left: -120px;
+  top: 55%;
+  transform: translateY(-50%);
+  opacity: 0.25;
+  pointer-events: none;
+  width: 420px;
+  mix-blend-mode: soft-light;
+  animation: floatSlow 25s ease-in-out infinite;
+}
+
+.sejarah__bg-logo img { width: 100%; }
+
+.sejarah__container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+  z-index: 1;
+}
+
+.sejarah__title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-block;
+}
+
+.sejarah__title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-white), transparent);
+  border-radius: 2px;
+}
+
+.sejarah__text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text-dark);
+  margin-bottom: 28px;
+}
+
+/* ====== QUOTE CARD GLASS ====== */
+.sejarah__quote-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  padding: 44px 32px;
+  margin: 40px 0;
+  box-shadow:
+    0 8px 32px rgba(57, 88, 134, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+/* Shimmer effect yang berjalan dari kiri ke kanan */
+.sejarah__quote-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: shimmerMove 6s ease-in-out infinite;
+}
+
+@keyframes shimmerMove {
+  0% { left: -100%; }
+  50%, 100% { left: 200%; }
+}
+
+.sejarah__quote-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 14px 40px rgba(57, 88, 134, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.sejarah__quote-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 0.3;
+  color: rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sejarah__quote-mark--end {
+  margin-left: 8px;
+}
+
+.sejarah__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(57, 88, 134, 0.2);
+  display: inline;
+  margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+  .sejarah__title { font-size: 2rem; }
+  .sejarah__quote { font-size: 1.3rem; }
+  .sejarah__quote-card { padding: 30px 22px; }
+  .sejarah__quote-mark { font-size: 2.5rem; }
+}
+.sejarah__text { overflow-wrap: break-word; word-break: break-word; }
+.sejarah__body { margin-bottom: 8px; }

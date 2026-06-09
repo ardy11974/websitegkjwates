@@ -49,6 +49,7 @@ model Roles {
   deskripsi_role String?
 
   users User[]
+  @@map("roles")
 }
 
 model User {
@@ -81,6 +82,8 @@ model User {
 
   ibadah       Ibadah[]
   jadwalIbadah JadwalIbadah[]
+
+  @@map("user")
 }
 
 model Kategori {
@@ -96,6 +99,8 @@ model Kategori {
   user User @relation(fields: [id_user], references: [id_user])
 
   berita Berita[]
+
+  @@map("kategori")
 }
 
 model Berita {
@@ -118,6 +123,8 @@ model Berita {
   kategori Kategori @relation(fields: [id_kategori], references: [id_kategori])
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("berita")
 }
 
 model Komisi {
@@ -133,6 +140,8 @@ model Komisi {
   user User @relation(fields: [id_user], references: [id_user])
 
   kegiatan Kegiatan[]
+
+  @@map("komisi")
 }
 
 model Kegiatan {
@@ -156,6 +165,8 @@ model Kegiatan {
   komisi Komisi @relation(fields: [id_komisi], references: [id_komisi])
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("kegiatan")
 }
 
 model Pengumuman {
@@ -172,6 +183,8 @@ model Pengumuman {
   user User @relation(fields: [id_user], references: [id_user])
 
   konten_pengumuman KontenPengumuman[]
+
+  @@map("pengumuman")
 }
 
 model KontenPengumuman {
@@ -191,6 +204,8 @@ model KontenPengumuman {
   pengumuman Pengumuman @relation(fields: [id_pengumuman], references: [id_pengumuman])
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("kontenpengumuman")
 }
 
 model Sorotan {
@@ -207,6 +222,8 @@ model Sorotan {
   updated_at DateTime @updatedAt
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("sorotan")
 }
 
 model Renungan {
@@ -229,6 +246,8 @@ model Renungan {
   updated_at DateTime @updatedAt
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("renungan")
 }
 
 model Persyaratan {
@@ -243,6 +262,8 @@ model Persyaratan {
   updated_at DateTime @updatedAt
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("persyaratan")
 }
 
 model Kemajelisan {
@@ -263,6 +284,8 @@ model Kemajelisan {
   updated_at DateTime @updatedAt
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("kemajelisan")
 }
 
 model Ibadah {
@@ -280,6 +303,8 @@ model Ibadah {
   user User @relation(fields: [id_user], references: [id_user])
 
   jadwalIbadah JadwalIbadah[]
+
+  @@map("ibadah")
 }
 
 model JadwalIbadah {
@@ -298,6 +323,8 @@ model JadwalIbadah {
   ibadah Ibadah @relation(fields: [id_ibadah], references: [id_ibadah])
 
   user User @relation(fields: [id_user], references: [id_user])
+
+  @@map("jadwalibadah")
 }
 
 model KritikSaran {
@@ -311,6 +338,8 @@ model KritikSaran {
   status_kritikSaran StatusKritikSaran @default(BELUM_DIBACA)
 
   created_at DateTime @default(now())
+
+  @@map("kritiksaran")
 }
 
 model PengaturanWeb {
@@ -332,4 +361,6 @@ model PengaturanWeb {
   copyright_text String?
 
   updated_at DateTime @updatedAt
+
+  @@map("pengaturanweb")
 }
