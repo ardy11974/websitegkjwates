@@ -7,7 +7,7 @@
 }
 
 .gkj-swal__title {
-  font-family: 'Playfair Display', serif !important;
+  font-family: var(--font-body) !important;
   font-size: 1.55rem !important;
   font-weight: 700 !important;
   color: #1e293b !important;

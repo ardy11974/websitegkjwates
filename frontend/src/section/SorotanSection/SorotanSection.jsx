@@ -77,7 +77,7 @@ const SorotanSection = () => {
           textColor="#395886"
           borderRadius={0.06}
           scrollEase={0.05}
-          font="bold 26px Playfair Display"
+          font="bold 26px Inter"
           itemWidth={itemWidth}
           itemHeight={itemHeight}
         />
